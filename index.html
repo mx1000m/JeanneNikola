@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeanne & Nikola</title>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='25' y='75' font-size='79'>&#x1F49B;</text></svg>">
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background: white; /* White background */
+  }
+  canvas {
+    display: block;
+    position: absolute;
+    z-index: -1; /* Place canvas behind text */
+  }
+  #container {
+    position: relative;
+  }
+  #text {
+    font-size: 2rem;
+    font-family: "Alex Brush";
+    font-weight: 700; /* Bold font weight */
+    color: black;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  #titleBox {
+    font-size: 2rem;
+    background-color: yellow;
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text vertically */
+    margin-top: 180px;
+    height: 2%;
+  }
+  .yellowBox {
+    padding: 20px; /* Yellow box padding */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .saveTheDateBox {
+    background-color: rgba(255,255,255,.8); /* White background for "Save the date" */
+    height: 4%;    
+    border: 4px solid yellow;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  .saveTheDateBox:hover {
+    transform: scale(1.05);
+  }
+  .may2025Box {
+    background-color: yellow; /* Yellow background for "May 2025" */
+    margin: 18px;
+    font-size: 2rem;
+    height: 2%;
+    padding: 10px;
+  }
+  .smallBox {
+    background-color: white;
+    margin: 18px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above canvas */
+  }
+  #saveTheDate {
+    font-size: 6rem;
+    color: black;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <canvas id="linesCanvas"></canvas>
+  <div id="text">
+    <div id="titleBox">
+      <p>Jeanne &amp; Nikola</p>
+    </div>
+    <div class="yellowBox saveTheDateBox" onclick="saveScreenshot()"> <!-- Yellow box for Save the date -->
+      <p id="saveTheDate">Save the date</p> <!-- Increased font size for Save the date -->
+    </div>
+    <div class="yellowBox may2025Box"> <!-- Yellow box for "May 2025" -->
+      <p>May 2025</p>
+    </div>
+  </div>
+  <div class="smallBox">
+    <p>Discover a realm as unique as Jeanne & Nikola's love. Like their journey, this webpage unveils new art with every visit.</p>
+  </div>
+</div>
+<script>
+  const linesCanvas = document.getElementById('linesCanvas');
+  const linesContext = linesCanvas.getContext('2d');
+
+  const canvasWidth = window.innerWidth;
+  const canvasHeight = window.innerHeight;
+
+  linesCanvas.width = canvasWidth;
+  linesCanvas.height = canvasHeight;
+
+  function getRandomColor() {
+    const randomValue = Math.random();
+    if (randomValue < 0.4) {
+      return 'black';
+    } else if (randomValue < 0.8) {
+      return 'white';
+    } else if (randomValue < 0.85) {
+      return 'green';
+    } else if (randomValue < 0.9) {
+      return 'red';
+    } else if (randomValue < 0.95) {
+      return 'orange';
+    } else {
+      return 'darkblue';
+    }
+  }
+
+  function generateLines(context) {
+    const maxLines = Math.floor(0.8 * 40); // 20% less lines
+    for (let i = 0; i < maxLines; i++) {
+      const thickness = Math.random() * 6 + 1;
+      const startX = Math.random() * canvasWidth;
+      const startY = Math.random() * canvasHeight;
+      const endX = Math.random() * canvasWidth;
+      const endY = Math.random() * canvasHeight;
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(endX, endY);
+      context.lineWidth = thickness;
+      context.strokeStyle = getRandomColor();
+      context.stroke();
+    }
+  }
+
+  function generateVerticalLines(context) {
+    const maxVerticalLines = Math.floor(0.8 * 40); // 20% less lines
+    for (let i = 0; i < maxVerticalLines; i++) {
+      const thickness = Math.random() * 6 + 1;
+      const startX = Math.random() * canvasWidth;
+      const startY = Math.random() * canvasHeight;
+      const endY = Math.random() * canvasHeight;
+      context.beginPath();
+      context.moveTo(startX, startY);
+      context.lineTo(startX, endY);
+      context.lineWidth = thickness;
+      context.strokeStyle = getRandomColor();
+      context.stroke();
+    }
+  }
+
+  function generateSplashes(context) {
+    const maxSplashes = 400; // Reduced number of splashes
+    for (let i = 0; i < maxSplashes; i++) {
+      const x = Math.random() * canvasWidth;
+      const y = Math.random() * canvasHeight;
+      context.beginPath();
+      context.arc(x, y, Math.random() * 6, 0, Math.PI * 2);
+      context.fillStyle = getRandomColor();
+      context.fill();
+    }
+  }
+
+  function saveScreenshot() {
+    const container = document.getElementById('container');
+    html2canvas(container).then(function(canvas) {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/jpeg');
+      link.download = 'Jeanne&Nikola-May2025.jpg';
+      link.click();
+    });
+  }
+
+  generateLines(linesContext);
+  generateVerticalLines(linesContext);
+  generateSplashes(linesContext);
+</script>
+</body>
+</html>
