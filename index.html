@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jeanne & Nikola</title>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='25' y='75' font-size='79'>&#x1F49B;</text></svg>">
 <style>
@@ -71,11 +72,12 @@
     padding: 10px;
   }
   .smallBox {
-    background-color: white;
-    margin: 18px;
-    padding: 10px;
+font-family: "roboto";
+font-weight: 400;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     position: sticky;
     bottom: 0;
     width: 100%;
@@ -86,22 +88,27 @@
     color: black;
   }
 
+
+
   /* Additional styles for responsiveness */
   @media (max-width: 600px) {
 
 
-
   .smallBox {
-    background-color: white;
-    margin: 0px;
+font-family: "roboto";
+font-weight: 400;
+    background-color: rgba(255, 255, 255, 1);
     padding: 2px;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     position: sticky;
     bottom: 0;
     width: 100%;
     z-index: 1000; /* Ensure it's above canvas */
   }
+
+
+
 
   #saveTheDate {
     font-size: 15vw;
