@@ -15,15 +15,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
 <style>
-
-@media (max-width: 600px) {
-  .saveTheDateBox {
-width: 50%;
-  }
-}
-
-
-
   body {
     margin: 0;
     overflow: hidden;
@@ -114,6 +105,24 @@ animation: pulse 2s infinite; /* Add the pulse animation */
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
+}
+
+
+
+
+@media (max-width: 600px) {
+  #text2 {
+font-size: 5rem;
+    font-family: "Alex Brush";
+    font-weight: 300; /* Bold font weight */
+    color: #dc7f56;
+    line-height: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
 }
 
 
@@ -266,6 +275,15 @@ font-weight: 400;
     <p>&nbsp;&nbsp;With every visit, a unique artwork is generated, mirroring the unparalleled nature of our distinct love for each other.</p>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 <script>
   const linesCanvas = document.getElementById('linesCanvas');
   const linesContext = linesCanvas.getContext('2d');
