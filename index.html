@@ -7,13 +7,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='25' y='75' font-size='79'>&#x1F49B;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='25' y='75' font-size='79'>&#x1F9E1;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
     overflow: hidden;
     background: white; /* White background */
   }
+
+.gradient-text {
+  background: linear-gradient(to right, #5affff, #5e27cb); /* Adjust colors as needed */
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+
+
   canvas {
     display: block;
     position: absolute;
@@ -22,21 +37,28 @@
   #container {
     position: relative;
   }
-  #text {
+
+
+
+
+
+  #text1 {
     font-size: 2rem;
-    font-family: "Alex Brush";
-    font-weight: 700; /* Bold font weight */
-    color: black;
+    font-family: "Pinyon Script";
+    font-weight: 200; /* Bold font weight */
+    color: #894019;
     line-height: 1.5;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
+letter-spacing: 2px;
   }
-  #titleBox {
+
+#titleBox1 {
     font-size: 2rem;
-    background-color: yellow;
+    background-color: rgba(255,255,255,1);
     padding: 10px;
     margin: 0px;
     text-align: center;
@@ -45,7 +67,106 @@
     justify-content: center; /* Center the text vertically */
     margin-top: 180px;
     height: 2%;
+
   }
+
+
+
+
+
+
+  #text2 {
+    font-size: 6rem;
+    font-family: "Alex Brush";
+    font-weight: 300; /* Bold font weight */
+    color: #dc7f56;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  .saveTheDateBox {
+    background-color: rgba(255,255,255,0.8); /* White background for "Save the date" */
+    height: 7.5%;    
+    border: 2px solid #894019;
+    margin: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+animation: pulse 2s infinite; /* Add the pulse animation */
+  }
+  .saveTheDateBox:hover {
+  transform: scale(1.05);
+  animation: none; /* Stop pulsing on hover */
+  }
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+  #text3 {
+    font-size: 1.3rem;
+    font-family: "Antic Didone";
+    font-weight: 300; /* Bold font weight */
+    color: #894019;
+    line-height: 0.8;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+letter-spacing: 2px;
+  }
+
+  .titleBox3 {
+    background-color: rgba(255,255,255,0.8); /* Yellow background for "May 2025" */
+    margin: 0px;
+    height: 0%;
+    padding: 0px;
+margin-top: -5px;
+  }
+
+
+  #text4 {
+    font-size: 1rem;
+    font-family: "Pinyon Script";
+    font-weight: 700; /* Bold font weight */
+    color: #217596;
+    line-height: 0.8;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+letter-spacing: 2px;
+  }
+  .titleBox4 {
+font-family: "Pinyon Script";
+    background-color: rgba(255,255,255,0.8); /* Yellow background for "May 2025" */
+    margin: 0px;
+    height: 0%;
+    padding: 0px;
+margin-top: -5px;
+  }
+
+
+
+
+  
+
+
+
+
+
+
+
+
   .yellowBox {
     padding: 20px; /* Yellow box padding */
     text-align: center;
@@ -53,24 +174,19 @@
     align-items: center;
     justify-content: center;
   }
-  .saveTheDateBox {
-    background-color: rgba(255,255,255,.8); /* White background for "Save the date" */
-    height: 4%;    
-    border: 4px solid yellow;
-    margin: 18px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  .saveTheDateBox:hover {
-    transform: scale(1.05);
-  }
-  .may2025Box {
-    background-color: yellow; /* Yellow background for "May 2025" */
-    margin: 0px;
-    font-size: 2rem;
-    height: 2%;
-    padding: 10px;
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   .smallBox {
 font-family: "roboto";
 font-weight: 400;
@@ -83,10 +199,7 @@ font-weight: 400;
     width: 100%;
     z-index: 1000; /* Ensure it's above canvas */
   }
-  #saveTheDate {
-    font-size: 6rem;
-    color: black;
-  }
+
 
 
 
@@ -109,23 +222,10 @@ font-weight: 400;
 
 
 
-
-  #saveTheDate {
-    font-size: 15vw;
-    color: black;
-  }
-
     #titleBox {
       margin-top: 200px;
     }
 
-
-  .saveTheDateBox {
-    background-color: rgba(255,255,255,.8); /* White background for "Save the date" */
-    height: 3%;    
-    border: 4px solid yellow;
-    margin: 18px;
-  }
 
 
   }
@@ -134,15 +234,23 @@ font-weight: 400;
 <body>
 <div id="container">
   <canvas id="linesCanvas"></canvas>
-  <div id="text">
-    <div id="titleBox">
+
+  <div id="text1">
+    <div id="titleBox1">
       <p>Jeanne &amp; Nikola</p>
     </div>
+
+<div id="text2">
     <div class="yellowBox saveTheDateBox" onclick="saveScreenshot()"> <!-- Yellow box for Save the date -->
       <p id="saveTheDate">Save the date</p> <!-- Increased font size for Save the date -->
     </div>
-    <div class="yellowBox may2025Box"> <!-- Yellow box for "May 2025" -->
-      <p>May 2025</p>
+
+<div id="text3">
+    <div class="yellowBox titleBox3">
+      <p>RED ISLAND, ISTRIA, CROATIA</p>
+    </div>
+    <div class="yellowBox titleBox4 text4">
+      <p>10 August 2024</p>
     </div>
   </div>
   <div class="smallBox">
@@ -162,17 +270,17 @@ font-weight: 400;
   function getRandomColor() {
     const randomValue = Math.random();
     if (randomValue < 0.4) {
-      return 'black';
+      return 'rgba(33,117,150,.8)'; //pink
     } else if (randomValue < 0.8) {
-      return 'white';
+      return 'white';//BCKGRND COLOR
     } else if (randomValue < 0.85) {
-      return 'green';
+      return 'rgba(59,193,178,.8)'; //BLUE
     } else if (randomValue < 0.9) {
-      return 'red';
+      return '#00BD9D';//GREEN
     } else if (randomValue < 0.95) {
-      return 'orange';
+      return '#EDB458';//YELLOW
     } else {
-      return 'darkblue';
+      return '#e87935';
     }
   }
 
@@ -226,7 +334,7 @@ font-weight: 400;
     html2canvas(container).then(function(canvas) {
       const link = document.createElement('a');
       link.href = canvas.toDataURL('image/jpeg');
-      link.download = 'Jeanne&Nikola-May2025.jpg';
+      link.download = 'Jeanne&Nikola-10.08.2024.jpg';
       link.click();
     });
   }
